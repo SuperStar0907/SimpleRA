@@ -1,0 +1,11 @@
+LOAD Student
+LOAD Advisor
+student_advisor <- CROSS Student Advisor
+student_advisorAge <- SELECT Adv_age > 40 FROM student_advisor
+finalG <- PROJECT Stud_Id, Adv_Id FROM student_advisorAge
+PRINT finalG
+CLEAR Student
+CLEAR Advisor
+CLEAR student_advisor
+CLEAR student_advisorAge
+CLEAR finalG

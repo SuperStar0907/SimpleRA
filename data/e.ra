@@ -1,0 +1,13 @@
+LOAD Student
+LOAD Marks
+student_marks_crossed <- CROSS Student Marks
+student_marks <- SELECT Student_Stud_Id == Marks_Stud_Id FROM student_marks_crossed
+female_students <- SELECT Stud_sex == 1 FROM student_marks
+student_mathMarkgt70 <- SELECT Maths_marks > 70 FROM female_students
+finalE <- SELECT Advisor_id == 1 FROM student_mathMarkgt70
+CLEAR Student
+CLEAR Marks 
+CLEAR student_marks_crossed
+CLEAR student_marks
+CLEAR female_students
+CLEAR student_mathMarkgt70

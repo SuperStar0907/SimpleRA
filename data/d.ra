@@ -1,0 +1,20 @@
+LOAD Student
+LOAD Marks
+student_marks_crossed <- CROSS Student Marks
+student_marks <- SELECT Student_Stud_Id == Marks_Stud_Id FROM student_marks_crossed
+student_mathMarkgte70 <- SELECT Maths_marks >= 70 FROM student_marks
+student_phyMarkgt60 <- SELECT Physics_marks > 60 FROM student_mathMarkgte70
+student_agel <- SELECT Stud_age >= 16 FROM student_phyMarkgt60
+student_ageh <- SELECT Stud_age <= 18 FROM student_agel
+finalD <- PROJECT Student_Stud_Id, Maths_marks, Physics_marks, Stud_age FROM student_ageh
+RENAME Student_Stud_Id TO Stud_Id FROM finalD
+PRINT finalD
+CLEAR Student
+CLEAR Marks
+CLEAR student_marks_crossed
+CLEAR student_marks
+CLEAR student_mathMarkgte70
+CLEAR student_phyMarkgt60
+CLEAR student_agel
+CLEAR student_ageh
+CLEAR finalD

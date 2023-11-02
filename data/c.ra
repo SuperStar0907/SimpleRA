@@ -1,0 +1,11 @@
+LOAD Student
+LOAD Advisor
+student_advisor <- CROSS Student Advisor
+student_sex <- SELECT Stud_sex != Adv_sex FROM student_advisor
+finalC <- PROJECT Stud_Id, Adv_Id, Stud_sex, Adv_sex FROM student_sex
+PRINT finalC
+CLEAR Student
+CLEAR Advisor
+CLEAR student_advisor
+CLEAR student_sex
+CLEAR finalC

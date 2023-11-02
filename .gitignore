@@ -1,0 +1,5 @@
+data/temp/* 
+src/*.o 
+src/executors/*.o
+src/server
+src/log
